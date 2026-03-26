@@ -46,20 +46,22 @@ public class Paciente {
     }
 
     public double aplicarDescuento(double porcentaje){
-        double calcularDescuento= (getCostoConsulta()*porcentaje);
-        costoConsulta = (getCostoConsulta()-porcentaje);
-        return  costoConsulta;
+        double percent=porcentaje/100;
+        double calcularDescuento= (this.costoConsulta*percent);
+        this.costoConsulta = (this.costoConsulta-calcularDescuento);
+        return  this.costoConsulta;
     }
 
     public double aplicarRecargo(double porcentaje){
-        double calcularRecargo= (getCostoConsulta()*porcentaje);
-         costoConsulta= (getCostoConsulta()+calcularRecargo);
-        return costoConsulta;
+        double percent=porcentaje/100;
+        double calcularRecargo= (this.costoConsulta*percent);
+        this.costoConsulta= (this.costoConsulta+calcularRecargo);
+        return this.costoConsulta;
     }
 //revisar
     public boolean esConsultaCostosa(){
 
-        if (costoConsulta>300000){
+        if (this.costoConsulta>300000){
             return true;
         }else {
             return false;
@@ -67,16 +69,16 @@ public class Paciente {
     }
 
     public double calcularCostoFinal(){
-        double costoFinal = ();
+        double costoFinal = (this.costoConsulta);
         return 0;
     }
 
-    public void mostrarInfo(){
+    public void mostrarInfo(double costoFinal){
         System.out.println( "Paciente{" +
                 "Nombre:'" + nombre + '\'' +
                 ", documento: " + documento +
                 ", Costo Consulta: " + costoConsulta +
-                ", Costo Final: "+ this.costoConsulta
+                ", Costo Final: "+ costoFinal
                 );
     }
 
